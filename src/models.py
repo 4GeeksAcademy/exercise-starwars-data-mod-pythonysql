@@ -34,7 +34,7 @@ class Personaje (db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     firstname_per: Mapped[str] = mapped_column(nullable=False,unique=True)
     descrip_per: Mapped[str] = mapped_column(nullable=False)
-    user_from_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
 
     def serialize_personaje(self):
         return {
@@ -50,7 +50,7 @@ class Planet(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     firstname_pla: Mapped[str] = mapped_column(nullable=False,unique=True)
     descrip_pla: Mapped[str] = mapped_column(nullable=False)
-    user_from_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
 
     def serialize_planet(self):
          return {
@@ -66,7 +66,7 @@ class Specie(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     firstname_spe: Mapped[str] = mapped_column(nullable=False,unique=True)
     descrip_spe: Mapped[str] = mapped_column(nullable=False)
-    user_from_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
 
     def serialize_specie(self):
          return {
@@ -82,7 +82,7 @@ class Vehicle(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     firstname_vehi: Mapped[str] = mapped_column(nullable=False,unique=True)
     descrip_vehi: Mapped[str] = mapped_column(nullable=False)
-    user_from_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
 
     def serialize_vehicle(self):
          return {
@@ -93,8 +93,3 @@ class Vehicle(db.Model):
             
         }
 
-    def to_dict(self):
-        return {}
-
-## Draw from SQLAlchemy base
-render_er(Base, 'diagram.png')
