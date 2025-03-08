@@ -239,7 +239,7 @@ def update_delete_specie(specie_id):
 # PUT GET POST DELETE de tabla vehicle
 @app.route('/favorite/vehicle', methods=["POST"])
 def create_vehicle():
-    vehicle = vehicle()
+    vehicle = Vehicle()
     vehicle.firstname_vehi = request.json.get('firstname_vehi')
     vehicle.descrip_vehi = request.json.get('descrip_vehi')
     vehicle.user_id = request.json.get('user_id')
@@ -296,3 +296,5 @@ def update_delete_vehicle(vehicle_id):
 
 if __name__ == "__main__":
     app.run(host="localhost", port=5000, debug=True)
+
+
