@@ -22,7 +22,7 @@ def create_user():
 
     return jsonify({
         "mensaje": "Usuario guardado"
-    }), 200
+    }), 200 
 
 @app.route('/user/list')
 def get_all_user():
@@ -124,7 +124,7 @@ def update_delete_personaje(personaje_id):
 
 # PUT GET POST DELETE de tabla Planets
 @app.route('/favorite/planet', methods=["POST"])
-def create_personaje():
+def create_planet():
     planet = Planet()
     planet.firstname_pla = request.json.get('firstname_pla')
     planet.descrip_pla = request.json.get('descrip_pla')
@@ -146,7 +146,7 @@ def get_all_planet():
 
 
 @app.route('/favorite/planet/<int:planet_id>', methods=["PUT", "DELETE"])
-def update_delete_personaje(planet_id):
+def update_delete_planet(planet_id):
     if request.method == 'PUT':
         planet = planet.query.get(planet_id)
         if planet is None:
@@ -181,7 +181,7 @@ def update_delete_personaje(planet_id):
 
 # PUT GET POST DELETE de tabla specie
 @app.route('/favorite/specie', methods=["POST"])
-def create_personaje():
+def create_specie():
     specie = Specie()
     specie.firstname_spe = request.json.get('firstname_spe')
     specie.descrip_spe = request.json.get('descrip_spe')
@@ -296,5 +296,3 @@ def update_delete_vehicle(vehicle_id):
 
 if __name__ == "__main__":
     app.run(host="localhost", port=5000, debug=True)
-
-
