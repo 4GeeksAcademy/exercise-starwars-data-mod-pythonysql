@@ -92,4 +92,3 @@ class Vehicle(db.Model):
             'user_id': self.meta_keywords,
             
         }
-
